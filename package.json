@@ -1,16 +1,18 @@
 {
   "name": "redux-realtime-cqrs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Making any rest api into a realt-time api with firebase",
   "author": "Xavier Ramírez  <xaviercobain88@hotmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/latam-autos/redux-realtime-cqrs"
   },
-  "contributors": [{
-    "name": "Xavier Ramírez",
-    "email": "xaviercobain88@hotmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "Xavier Ramírez",
+      "email": "xaviercobain88@hotmail.com"
+    }
+  ],
   "devDependencies": {
     "babel-cli": "^6.7.5",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
