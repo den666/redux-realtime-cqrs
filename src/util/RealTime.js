@@ -1,7 +1,9 @@
 /**
  * Created by xavier on 4/20/16.
  */
-export default function realTime() {
+// @flow
+export default function realTime(path:string, config:Array<string, string>) {
     console.log()
     return (target, property, descriptor) => console.log(target, property, descriptor);
 }
+    

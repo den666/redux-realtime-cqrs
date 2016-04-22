@@ -1,6 +1,6 @@
 // @flow
-import realTime from '../util/RealTime'
-
+import realTime from '../util/realTime'
+import Model from '../util/Model'
 
 @realTime("/chat-sessions")
 class ChatSession extends Model{

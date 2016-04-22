@@ -1,10 +1,14 @@
-"use strict";
+'use strict';
 
 var _dec, _class;
 
-var _RealTime = require("../util/RealTime");
+var _realTime = require('../util/realTime');
 
-var _RealTime2 = _interopRequireDefault(_RealTime);
+var _realTime2 = _interopRequireDefault(_realTime);
+
+var _Model2 = require('../util/Model');
+
+var _Model3 = _interopRequireDefault(_Model2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14,7 +18,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ChatSession = (_dec = (0, _RealTime2.default)("/chat-sessions"), _dec(_class = function (_Model) {
+var ChatSession = (_dec = (0, _realTime2.default)("/chat-sessions"), _dec(_class = function (_Model) {
     _inherits(ChatSession, _Model);
 
     function ChatSession() {
@@ -24,4 +28,4 @@ var ChatSession = (_dec = (0, _RealTime2.default)("/chat-sessions"), _dec(_class
     }
 
     return ChatSession;
-}(Model)) || _class);
+}(_Model3.default)) || _class);

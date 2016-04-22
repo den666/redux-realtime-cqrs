@@ -1,6 +1,7 @@
 /**
  * Created by xavier on 4/20/16.
  */
-class Model {
+// @flow
+export default class Model {
     id:string
 }
