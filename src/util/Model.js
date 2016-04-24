@@ -6,7 +6,6 @@ export default class Model {
     id:string;
 
     constructor(id:string) {
-        super();
         this.id = id
     }
 
