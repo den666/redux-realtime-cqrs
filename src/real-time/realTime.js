@@ -16,12 +16,12 @@ export default function realTime(path:string, config:Array<[string, string]>) {
         });
 
 
-        target.realtimeVendor = realTimeVendorConstants.FIREBASE;
+        target.realTimeVendor = realTimeVendorConstants.FIREBASE;
         if (realTimeVendorItem) {
             let realTimeVendor:string = Object.keys(realTimeVendorConstants).map(key => realTimeVendorConstants[key]).some(
                 (realTimeVendor:string)=>realTimeVendor === realTimeVendorItem[1]
             );
-            target.realtimeVendor = realTimeVendor ? realTimeVendor : realTimeVendorConstants.FIREBASE;
+            target.realTimeVendor = realTimeVendor ? realTimeVendor : realTimeVendorConstants.FIREBASE;
         }
 
 
