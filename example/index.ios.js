@@ -20,6 +20,8 @@ class example extends Component {
     super(props)
     this.state = {taskList : new TaskList("hola")}
     console.log(this.state)
+    console.log(this.state.taskList.path())
+    console.log(this.state.taskList.realTimeVendor)
   }
 
   render() {

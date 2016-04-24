@@ -8,5 +8,8 @@ export default class Model {
     constructor(id:string) {
         this.id = id
     }
+    get getId():string {
+        return this.id;
+    }
 
 }
