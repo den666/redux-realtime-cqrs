@@ -1,6 +1,6 @@
 {
   "name": "redux-realtime-cqrs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Making any rest api into a realt-time api with firebase",
   "author": "Xavier Ramírez  <xaviercobain88@hotmail.com>",
   "repository": {
