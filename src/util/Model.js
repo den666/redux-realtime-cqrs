@@ -8,8 +8,9 @@ export default class Model {
     constructor(id:string) {
         this.id = id
     }
-    get getId():string {
-        return this.id;
+
+    getRealTimePath():string {
+        return this.getRealTimeURI() + "/" + this.id;
     }
 
 }

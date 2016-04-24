@@ -8,7 +8,8 @@ export default function realTime(path:string, config:Array<[string, string]>) {
 
     return (target) => {
 
-        target.prototype.path = ()=>(path ? path : target.name ) + "/" + target.prototype.getId();
+
+        target.prototype.getRealTimeURI = ()=>(path ? path : target.name ) ;
 
 
         let realTimeVendorItem:[string, string] = config.some((configItem:[string, string])=> {

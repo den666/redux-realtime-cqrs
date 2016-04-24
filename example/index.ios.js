@@ -18,9 +18,9 @@ class example extends Component {
 
   constructor(props){
     super(props)
-    this.state = {taskList : new TaskList("hola")}
+    this.state = {taskList : new TaskList("hola", "hola")}
     console.log(this.state)
-    console.log(this.state.taskList.path())
+    console.log(this.state.taskList.getRealTimePath())
     console.log(this.state.taskList.getRealTimeVendor())
   }
 
