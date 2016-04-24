@@ -9,8 +9,8 @@ import config from '../config'
 
 @realTime("task-lists", config)
 export default class TaskList extends Model {
-    constructor(name:string) {
-        super();
+    constructor(id: string, name:string) {
+        super(id);
         this.name = name
     }
 

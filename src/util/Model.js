@@ -3,5 +3,11 @@
  */
 // @flow
 export default class Model {
-    id:string
+    id:string;
+
+    constructor(id:string) {
+        super();
+        this.id = id
+    }
+
 }
