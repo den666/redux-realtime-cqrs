@@ -19,6 +19,7 @@ class example extends Component {
   constructor(props){
     super(props)
     this.state = {taskList : new TaskList("hola")}
+    console.log(this.state)
   }
 
   render() {
