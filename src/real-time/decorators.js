@@ -8,7 +8,7 @@ export default function realTime(path:string, config:Array<[string, string]>) {
 
     return (target) => {
 
-        target.path = (path ? path : target.name ) + "/" + target.prototype.getId();
+        target.prototype.path = ()=>(path ? path : target.name ) + "/" + target.prototype.getId();
 
 
         let realTimeVendorItem:[string, string] = config.some((configItem:[string, string])=> {

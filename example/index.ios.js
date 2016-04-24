@@ -21,7 +21,7 @@ class example extends Component {
     this.state = {taskList : new TaskList("hola")}
     console.log(this.state)
     console.log(this.state.taskList.path())
-    console.log(this.state.taskList.realTimeVendor)
+    console.log(this.state.taskList.getRealTimeVendor())
   }
 
   render() {
