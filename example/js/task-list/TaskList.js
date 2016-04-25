@@ -7,13 +7,13 @@ import Task from '../task/Task'
 import realTime from 'redux-realtime-cqrs/src/real-time/decorators'
 import config from '../config'
 
-@realTime("task-lists", config)
+@realTime("task-lists")
 export default class TaskList extends Model {
-    constructor(id: string, name:string) {
+    constructor(id:string, name:string) {
         super(id);
         this.name = name
     }
-
+    
     name:string;
     tasks:Array<Task>;
 }

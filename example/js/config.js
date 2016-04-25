@@ -6,7 +6,8 @@ import realTimeVendorConstants from "redux-realtime-cqrs/src/constants/realTimeV
 import configConstants from "redux-realtime-cqrs/src/constants/configConstants"
 
 let config:Array<[string, string]> = [
-    [configConstants.REAL_TIME_VENDOR, realTimeVendorConstants.FIREBASE]
+    [configConstants.REAL_TIME_VENDOR, realTimeVendorConstants.FIREBASE],
+    [configConstants.FIREBASE_URL, "https://redux-realtime-cqrs.firebaseio.com/"]
 ]
 
 

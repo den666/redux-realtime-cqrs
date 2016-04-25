@@ -17,11 +17,11 @@ import TaskList from './js/task-list/TaskList'
 class example extends Component {
 
   constructor(props){
-    super(props)
-    this.state = {taskList : new TaskList("hola", "hola")}
-    console.log(this.state)
-    console.log(this.state.taskList.getRealTimePath())
-    console.log(this.state.taskList.getRealTimeVendor())
+    super(props);
+    this.state = {taskList : new TaskList("hola", "hola")};
+    console.log(this.state);
+    console.log(this.state.taskList.getRealTimePath());
+    console.log(this.state.taskList.getRealTimeVendor());
   }
 
   render() {
@@ -47,18 +47,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });
 
 AppRegistry.registerComponent('example', () => example);
