@@ -24,6 +24,11 @@ var Model = function () {
         value: function getRealTimePath() {
             return this.getRealTimeURI() + "/" + this.id;
         }
+    }, {
+        key: "isRealTime",
+        value: function isRealTime() {
+            return false;
+        }
     }]);
 
     return Model;

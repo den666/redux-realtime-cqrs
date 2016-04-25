@@ -25,6 +25,12 @@ function realTime(path /*, config:Array<[string, string]>*/) {
         target.prototype.getRealTimeURI = function () {
             return path ? path : target.name;
         };
+        target.prototype.getModelType = function () {
+            return target.name;
+        };
+        target.prototype.isRealTime = function () {
+            return true;
+        };
 
         // let realTimeVendorItem:[string, string] = config.some((configItem:[string, string])=> {
         //     return configItem[0] === configConstants.REAL_TIME_VENDOR

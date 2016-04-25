@@ -13,4 +13,8 @@ export default class Model {
         return this.getRealTimeURI() + "/" + this.id;
     }
 
+    isRealTime():boolean {
+        return false;
+    }
+
 }

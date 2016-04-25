@@ -9,6 +9,8 @@ export default function realTime(path:string/*, config:Array<[string, string]>*/
     return (target) => {
 
         target.prototype.getRealTimeURI = ()=>(path ? path : target.name );
+        target.prototype.getModelType = ()=>target.name;
+        target.prototype.isRealTime = ()=>true;
 
         // let realTimeVendorItem:[string, string] = config.some((configItem:[string, string])=> {
         //     return configItem[0] === configConstants.REAL_TIME_VENDOR
