@@ -8,7 +8,7 @@
   "dependencies": {
     "react": "^0.14.8",
     "react-native": "^0.24.1",
-    "redux-realtime-cqrs": "0.0.10"
+    "redux-realtime-cqrs": "0.0.11"
   },
   "devDependencies": {
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
