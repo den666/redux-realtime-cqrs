@@ -8,4 +8,5 @@ Object.defineProperty(exports, "__esModule", {
  */
 
 var REAL_TIME_VENDOR = "REAL_TIME_VENDOR";
-exports.default = { REAL_TIME_VENDOR: REAL_TIME_VENDOR };
+var FIREBASE_URL = "FIREBASE_URL";
+exports.default = { REAL_TIME_VENDOR: REAL_TIME_VENDOR, FIREBASE_URL: FIREBASE_URL };

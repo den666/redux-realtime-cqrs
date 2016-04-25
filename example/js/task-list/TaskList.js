@@ -5,7 +5,6 @@
 import Model from 'redux-realtime-cqrs/src/util/Model'
 import Task from '../task/Task'
 import realTime from 'redux-realtime-cqrs/src/real-time/decorators'
-import config from '../config'
 
 @realTime("task-lists")
 export default class TaskList extends Model {
