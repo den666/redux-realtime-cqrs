@@ -11,45 +11,44 @@ app.use(bodyParser.json());
 
 var firebaseURL = "https://redux-realtime-cqrs.firebaseio.com";
 
-var todoLists = {
+var projects = {
     1: {
-        name: "First odo list",
+        name: "First Project",
         id: 1
-
     },
     2: {
-        name: "Second todo list",
+        name: "Second Project",
         id: 2
     }
 };
 var todos = {
     1: {
-        name: "First task of first todo list",
+        name: "First todo of first project",
         completed: false,
-        todoListId: 1,
+        projectId: 1,
         id: 1
     },
     2: {
-        name: "Second task of first todo list",
+        name: "Second todo of first project",
         completed: false,
-        todoListId: 1,
+        projectId: 1,
         id: 2
     },
     3: {
-        name: "First task of second todo list",
+        name: "First todo of second project",
         completed: false,
-        todoListId: 2,
+        projectId: 2,
         id: 3
     },
     4: {
-        name: "Second task of second todo list",
+        name: "Second todo of second project",
         completed: false,
-        todoListId: 2,
+        projectId: 2,
         id: 4
     }
 
 };
-var indexTodoLists = 3;
+var indexProjects = 3;
 var indexTodos = 3;
 
 var router = express.Router();
@@ -58,66 +57,69 @@ router.get('/', function (req, res) {
     res.json({message: 'It\'s working'});
 });
 
-router.get('/todo-lists', function (req, res) {
-    res.json({data: todoLists, timestamp: getNowMicroseconds()});
+router.get('/projects', function (req, res) {
+    res.json({data: projects, timestamp: getNowMicroseconds()});
 });
 
-router.post('/todo-lists', function (req, res) {
+router.post('/projects', function (req, res) {
 
-    todoLists[indexTodoLists] = {name: req.body.name, id: indexTodoLists};
-
-
+    projects[indexProjects] = {name: req.body.name, id: indexProjects};
     var microseconds = getNowMicroseconds();
-    (new Firebase(firebaseURL + '/todo-lists/' + indexTodoLists + "/timestamp")).set(microseconds);
-    indexTodoLists++;
+    (new Firebase(firebaseURL + '/projects/' + indexProjects + "/timestamp")).set(microseconds);
+    indexProjects++;
     res.json({data: true, timestamp: microseconds});
 
 });
 
-router.get('/todo-lists/:id', function (req, res) {
-    res.json({data: todoLists[req.params.id], timestamp: getNowMicroseconds()});
+router.get('/projects/:projectId', function (req, res) {
+
+    res.json({data: projects[req.params.projectId], timestamp: getNowMicroseconds()});
+
 });
 
-router.post('/todo-lists/:id/todos', function (req, res) {
-    todos[indexTodos] = {name: req.body.name, todoListId: req.params.id, completed: false, id: indexTodos};
+router.post('/projects/:projectId/todos', function (req, res) {
 
-
+    todos[indexTodos] = {name: req.body.name, projectId: req.params.projectId, completed: false, id: indexTodos};
     var microseconds = getNowMicroseconds();
     (new Firebase(firebaseURL + '/todos/' + indexTodos + "/timestamp")).set(microseconds);
-    // (new Firebase(firebaseURL + '/todo-lists/'+req.params.id+'/timestamp')).set(microseconds);
-    (new Firebase(firebaseURL + '/todo-lists/'+req.params.id+'/todos/timestamp')).set(microseconds);
+    (new Firebase(firebaseURL + '/projects/'+req.params.projectId+'/todos/timestamp')).set(microseconds);
     indexTodos++;
     res.json({data: true, timestamp: microseconds});
 
 });
 
-//it´s not necessary "/todo-lists/:id", for this example is easier
+//it´s not necessary "/projects/:id", for this example is easier
 router.put('/todos/:todoId/toggle', function (req, res) {
+
     var todo = todos[req.params.todoId];
     todo.completed = !todo.completed;
     todos[req.params.todoId] = todo;
-
-
     var microseconds = getNowMicroseconds();
     (new Firebase(firebaseURL + '/todos/' + req.params.todoId + "/timestamp")).set(microseconds);
-    // (new Firebase(firebaseURL + '/todo-lists/'+req.params.id+'/timestamp')).set(microseconds);
-    // (new Firebase(firebaseURL + '/todo-lists/'+req.params.todoListId+'/todos/timestamp')).set(microseconds);
     res.json({data: true, timestamp: microseconds});
-});
-router.get('/todo-lists/:todoListId/todos', function (req, res) {
-    res.json({data: Object.keys(todos).map((index)=>todos[index]).
-    filter((item)=>item.todoListId==req.params.todoListId), timestamp: getNowMicroseconds()});
+
 });
 
-router.get('/todos/:id', function (req, res) {
-    res.json({data: todos[req.params.id], timestamp: getNowMicroseconds()});
+router.get('/projects/:projectId/todos', function (req, res) {
+
+    res.json({data: Object.keys(todos).map((index)=>todos[index]).
+    filter((item)=>item.projectId==req.params.projectId), timestamp: getNowMicroseconds()});
+
+});
+
+router.get('/todos/:todoId', function (req, res) {
+
+    res.json({data: todos[req.params.todoId], timestamp: getNowMicroseconds()});
+
 });
 
 var getNowMicroseconds = function () {
+
     var loadTimeInMS = Date.now()
     var performanceNow = require("performance-now");
     return Math.ceil((loadTimeInMS + performanceNow()) * 1000)
-}
+
+};
 
 app.use('/', router);
 
